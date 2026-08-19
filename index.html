@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Cortes y barbería por Lautaro Rodríguez." />
+    <title>Barbería | Lautaro Rodríguez</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink:#0a0a0b; --paper:#f3f3f1; --silver:#b9bbc0; --silver-dark:#787b82; --accent:#d5d7dc; --muted:#666970; }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin:0; background:var(--paper); color:var(--ink); font-family:Manrope,Arial,sans-serif; }
+      a { color:inherit; text-decoration:none; }
+      .wrap { max-width:1220px; margin:auto; padding:0 32px; }
+      nav { height:82px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(17,17,15,.15); }
+      .monogram { font:500 13px "DM Mono",monospace; letter-spacing:.12em; text-transform:uppercase; }
+      nav ul { display:flex; list-style:none; gap:30px; padding:0; margin:0; font-size:13px; font-weight:700; }
+      .nav-book, .button { display:inline-flex; align-items:center; gap:11px; border:1px solid #c4c6cb; background:var(--ink); color:#fff; padding:14px 20px; border-radius:1px; font-weight:800; font-size:13px; cursor:pointer; transition:.2s; }
+      .nav-book:hover,.button:hover { background:#303136; transform:translateY(-2px); }
+      .hero { display:grid; grid-template-columns:1.03fr .97fr; min-height:630px; border-bottom:1px solid rgba(17,17,15,.15); }
+      .hero-copy { padding:88px 52px 68px 0; display:flex; flex-direction:column; justify-content:space-between; }
+      .eyebrow { font:500 12px "DM Mono",monospace; text-transform:uppercase; letter-spacing:.11em; color:var(--silver-dark); }
+      h1 { margin:18px 0 24px; font-size:clamp(52px,6.2vw,88px); line-height:.98; letter-spacing:-.065em; max-width:720px; }
+      .hero p { font-size:17px; line-height:1.7; max-width:455px; color:var(--muted); margin:0 0 32px; }
+      .hero-details { display:flex; gap:36px; font:500 11px "DM Mono",monospace; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); }
+      .hero-image { position:relative; min-height:480px; overflow:hidden; background:#24221e; }
+      .hero-image img { width:100%; height:100%; object-fit:cover; filter:grayscale(100%) contrast(1.08); opacity:.9; }
+      .hero-image::after { content:""; position:absolute; inset:0; background:linear-gradient(160deg,transparent 35%,rgba(185,187,192,.25)); mix-blend-mode:screen; }
+      .vertical-note { position:absolute; right:19px; bottom:26px; color:white; writing-mode:vertical-rl; font:500 11px "DM Mono",monospace; letter-spacing:.12em; z-index:1; }
+      section { padding:105px 0; }
+      .section-head { display:flex; justify-content:space-between; align-items:end; margin-bottom:48px; }
+      h2 { margin:8px 0 0; font-size:clamp(35px,4vw,54px); line-height:1; letter-spacing:-.055em; }
+      .section-note { max-width:330px; color:var(--muted); font-size:14px; line-height:1.65; }
+      .services { border-bottom:1px solid rgba(17,17,15,.15); }
+      .service-list { border-top:1px solid var(--ink); }
+      .service { display:grid; grid-template-columns:90px 1fr auto; align-items:center; padding:23px 0; border-bottom:1px solid rgba(17,17,15,.18); transition:.2s; }
+      .service:hover { padding-left:14px; background:#e7e7e5; }
+      .service-num,.price { font:500 12px "DM Mono",monospace; color:var(--muted); }
+      .service h3 { margin:0; font-size:23px; letter-spacing:-.04em; }
+      .about { display:grid; grid-template-columns:1fr 1fr; gap:10%; align-items:center; }
+      .about-photo { height:530px; overflow:hidden; }
+      .about-photo img { width:100%; height:100%; object-fit:cover; filter:grayscale(100%); }
+      .about-copy p { color:var(--muted); line-height:1.8; font-size:16px; max-width:450px; }
+      .signature { margin-top:30px; font-size:22px; font-weight:800; letter-spacing:-.05em; }
+      .gallery { background:var(--ink); color:var(--paper); }
+      .gallery .eyebrow { color:var(--silver); }
+      .gallery-grid { display:grid; grid-template-columns:1.05fr .8fr .8fr; gap:16px; }
+      .gallery-card { min-height:350px; overflow:hidden; position:relative; background:#333; }
+      .gallery-card:first-child { grid-row:span 2; min-height:716px; }
+      .gallery-card img { width:100%; height:100%; object-fit:cover; position:absolute; filter:grayscale(100%); transition:transform .5s; }
+      .gallery-card:hover img { transform:scale(1.06); }
+      .gallery-card span { position:absolute; bottom:14px; left:14px; z-index:1; font:500 10px "DM Mono",monospace; letter-spacing:.1em; }
+      .booking { padding:100px 0; text-align:center; background:#18191b; color:#fff; border-top:1px solid #4a4c51; }
+      .booking h2 { font-size:clamp(42px,6vw,76px); max-width:760px; margin:14px auto 25px; }
+      .booking p { max-width:450px; margin:0 auto 32px; line-height:1.7; font-size:15px; opacity:.9; }
+      .booking .button { background:var(--paper); color:var(--ink); border-color:var(--paper); }
+      .booking .button:hover { background:var(--silver); border-color:var(--silver); }
+      footer { padding:27px 0; background:var(--ink); color:var(--paper); }
+      footer .wrap { display:flex; justify-content:space-between; font:500 11px "DM Mono",monospace; color:#c9c1b5; }
+      @media (max-width:760px) { .wrap{padding:0 20px} nav ul{display:none}.nav-book{padding:11px 13px;font-size:11px}.hero{grid-template-columns:1fr}.hero-copy{padding:62px 0 45px}.hero-image{height:410px;min-height:0}.hero-details{gap:20px;flex-wrap:wrap}.section-head{display:block}.section-note{margin-top:22px}.service{grid-template-columns:52px 1fr auto}.service h3{font-size:18px}.about{grid-template-columns:1fr;gap:38px}.about-photo{height:390px}.gallery-grid{grid-template-columns:1fr 1fr;gap:8px}.gallery-card{min-height:230px}.gallery-card:first-child{grid-column:span 2;grid-row:auto;min-height:420px}section{padding:70px 0}footer .wrap{gap:12px;flex-direction:column} }
+    </style>
+  </head>
+  <body>
+    <header class="wrap"><nav><a class="monogram" href="#inicio">Lautaro Rodríguez</a><ul><li><a href="#servicios">Servicios</a></li><li><a href="#sobre-mi">Sobre mí</a></li><li><a href="#trabajos">Trabajos</a></li></ul><a class="nav-book" href="#turnos">Reservar turno ↗</a></nav></header>
+    <main>
+      <section class="wrap hero" id="inicio">
+        <div class="hero-copy"><div><div class="eyebrow">Barbería · corte · estilo</div><h1>Tu estilo,<br>bien llevado.</h1><p>Cortes precisos, detalles que cuentan y un espacio pensado para que salgas sintiéndote vos.</p><a class="button" href="#turnos">Sacá tu turno <span>↗</span></a></div><div class="hero-details"><span>Atención personalizada</span><span>Con turno previo</span></div></div>
+        <div class="hero-image"><img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1100&q=85" alt="Herramientas de barbería"><div class="vertical-note">Lautaro Rodríguez · Barber</div></div>
+      </section>
+      <section class="wrap services" id="servicios"><div class="section-head"><div><div class="eyebrow">01 / Servicios</div><h2>Lo que hacemos</h2></div><p class="section-note">Cada servicio se adapta a tu pelo, tus facciones y la forma en que querés llevarlo.</p></div><div class="service-list"><div class="service"><span class="service-num">01</span><h3>Corte de pelo</h3><span class="price">Consultar</span></div><div class="service"><span class="service-num">02</span><h3>Barba y perfilado</h3><span class="price">Consultar</span></div><div class="service"><span class="service-num">03</span><h3>Corte + barba</h3><span class="price">Consultar</span></div><div class="service"><span class="service-num">04</span><h3>Asesoramiento de estilo</h3><span class="price">Consultar</span></div></div></section>
+      <section class="wrap about" id="sobre-mi"><div class="about-photo"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1000&q=85" alt="Interior de barbería"></div><div class="about-copy"><div class="eyebrow">02 / El barbero</div><h2>Un corte que te represente.</h2><p>Hola, soy Lautaro. Mi objetivo es simple: que cada persona encuentre un estilo cómodo, prolijo y propio. Me tomo el tiempo para entender qué buscás y cuidar cada detalle del proceso.</p><div class="signature">Lautaro Rodríguez</div></div></section>
+      <section class="gallery" id="trabajos"><div class="wrap"><div class="section-head"><div><div class="eyebrow">03 / Trabajos</div><h2>Detalles reales.</h2></div><p class="section-note" style="color:#c9c1b5">Un espacio para mostrar tus cortes y el resultado de cada visita.</p></div><div class="gallery-grid"><div class="gallery-card"><img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=1000&q=85" alt="Corte masculino"><span>CORTE / 01</span></div><div class="gallery-card"><img src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=700&q=85" alt="Detalle de barbería"><span>DETALLE / 02</span></div><div class="gallery-card"><img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=700&q=85" alt="Barbería"><span>ESTILO / 03</span></div></div></div></section>
+      <section class="booking" id="turnos"><div class="wrap"><div class="eyebrow" style="color:#fff">04 / Turnos</div><h2>Reservá tu próximo corte.</h2><p>Escribime y coordinamos el día y horario que te quede mejor.</p><a class="button" href="https://wa.me/" target="_blank" rel="noopener">Hablar por WhatsApp ↗</a></div></section>
+    </main>
+    <footer><div class="wrap"><span>LAUTARO RODRÍGUEZ · BARBER</span><span>HECHO PARA VOS · 2026</span></div></footer>
+  </body>
+</html>
